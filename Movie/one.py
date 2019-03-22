@@ -13,7 +13,7 @@ while record_position < len(string):
     # 遍历整个字符串 #截取完一次之后让下个字符串出现
     start_index = string.find(start_str, record_position)
     # print('--------------', start_index)
-    #调用字符串的find方法的时候，若出现错误，则返回的值为-1.
+    #调用字符串的find方法的时候，若出现错误，则返回的值为-1
     if start_index == -1:
         # 没有匹配结果
         break
