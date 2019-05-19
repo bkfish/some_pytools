@@ -1,0 +1,8 @@
+import base64
+cont= b"UEsDBBQAAAgIANeFfErNFL6kGwAAABsAAAAcAAAAaGludF9zb21lIF90aGluZ19pc19mYWtlLnR4dEvLSUyvTs5IzUuPL87IjC9JzI/PKQUyU/NqAVBLAQI/ABQACQAIANeFfErNFL6kGwAAABsAAAAcACQAAAAAAAAAIAAAAAAAAABoaW50X3NvbWUgX3RoaW5nX2lzX2Zha2UudHh0CgAgAAAAAAABABgAu7Ux1J+n0gGhDeAnl6fSAaEN4CeXp9IBUEsFBgAAAAABAAEAbgAAAFUAAAAAAA=="
+
+file_cont = base64.standard_b64decode(cont)
+
+fd = open("test.zip",'wb')
+fd.write(file_cont)
+fd.close()
