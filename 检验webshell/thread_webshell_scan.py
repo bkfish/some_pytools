@@ -54,23 +54,12 @@ def run_one_thread(name_list):
             f.close()
 #做GET请求
 def get_rep(filename, name):
-    r_url = url + filename +  "?" + name + "=phpinfo();"
+    r_url = url + filename +  "?" + name + "=echo 'Hello Kitty';"
     #print(r_url)
     rep = requests.get(r_url)
-    if 'PHP Version' in rep.content.decode('gbk'):
+    if 'Hello Kitty' in rep.content.decode('gbk'):
         Record_To_File(filename,name)
 
-    r_url = url + filename +  "?" + name + "=hostname"
-    rep = requests.get(r_url)
-    #print(r_url)
-    if 'DESKTOP-CE0L9E5' in rep.content.decode('utf-8'):
-        Record_To_File(filename,name)
-
-    r_url = url + filename +  "?" + name + "=system('hostname');"
-    rep = requests.get(r_url)
-    #print(r_url)
-    if 'DESKTOP-CE0L9E5' in rep.content.decode('utf-8'):
-        Record_To_File(filename,name)
 
 def Record_To_File(filename,name):
     answer = open('answer.txt','a+')
