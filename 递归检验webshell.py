@@ -29,6 +29,7 @@ def get_url_list():
                 url_list.append(base_url+file_path2)
                 #print(base_url+file_path2)
 #每个线程的运作 参数为文件名称的列表
+
 def run(name_list):
     for k in name_list:
         #print(k)
@@ -64,32 +65,7 @@ def run(name_list):
                 f.close()
         except Exception as e:
             raise e
-#做GET请求
-def get_rep(base_url, name):
-    r_url = base_url +  "?" + str(name) + "=echo 'Hello Kitty';"
-    #print(r_url)
-    rep = requests.get(r_url)
-    if 'Hello Kitty' in rep.content.decode('gbk'):
-        Record_To_File(r_url,name)
 
-def post_rep(base_url, name):
-
-    r_url = base_url 
-    param = {
-        name: "echo 'HelloKitty';"
-    }
-    rep = requests.post(r_url, data=param)
-    #print(r_url + " POST: " + name)
-    if 'HelloKitty' in rep.content.decode('gbk'):
-        Record_To_File(r_url,name)
-
-
-def Record_To_File(filename,name):
-    answer = open('answer.txt','a+')
-    end = time.time()
-    answer.write("Got It!   !!!!!!! " + filename + " The param is: [\'" + name +"\']\n")
-    print("Got It!   !!!!!!! " + filename + " The param is: [\'" + name +"\']")
-    answer.close()
 
 
 if __name__=='__main__':
